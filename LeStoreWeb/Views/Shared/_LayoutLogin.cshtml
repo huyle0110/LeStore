@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+    switch (new Random().Next(1, 5))
+    {
+        case 1:
+            ViewBag.UrlImage = "../../../Content/Layout/assets/img/background/background-1.jpg";
+            break;
+        case 2:
+            ViewBag.UrlImage = "../../../Content/Layout/assets/img/background/background-2.jpg";
+            break;
+        case 3:
+            ViewBag.UrlImage = "../../../Content/Layout/assets/img/background/background-3.jpg";
+            break;
+        case 4:
+            ViewBag.UrlImage = "../../../Content/Layout/assets/img/background/background-4.jpg";
+            break;
+        case 5:
+            ViewBag.UrlImage = "../../../Content/Layout/assets/img/background/background-5.jpg";
+            break;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico?v=1">
+    <title>Shop's</title>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Muli:400,300' />
+
+    <link href="~/Content/Layout/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Layout/assets/css/paper-dashboard.css" rel="stylesheet" />
+    <link href="~/Content/Layout/assets/css/demo.css" rel="stylesheet" />
+    <link href="~/Content/Layout/assets/css/themify-icons.css" rel="stylesheet" />
+    <script src="~/Content/Layout/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body class="blank">
+    <!-- Main view  -->
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container">
+            <div class="navbar-header">
+                <label class="navbar-brand" style="margin-left:10px">Đăng nhập vào Shop</label>
+            </div>
+            <div class="collapse navbar-collapse">
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper wrapper-full-page">
+        <div class="full-page login-page" data-color="" data-image=@ViewBag.UrlImage>
+            @RenderBody()
+            <footer class="footer footer-transparent">
+                <div class="container">
+                    <div class="copyright" style="color: white">
+                        &copy;
+                        Huy Le's Shop
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/LayoutCommon.js"></script>
+<script type="text/javascript">
+            $().ready(function(){
+                layout.checkFullPageBackgroundImage();
+                layout.setTimeout();
+            });
+</script>
+
+

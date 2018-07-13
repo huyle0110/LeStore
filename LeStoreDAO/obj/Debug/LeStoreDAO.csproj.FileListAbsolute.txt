@@ -1,0 +1,7 @@
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreDAO.dll
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreDAO.pdb
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreLibrary.dll
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreLibrary.pdb
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreDAO\obj\Debug\LeStoreDAO.csprojResolveAssemblyReference.cache
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreDAO\obj\Debug\LeStoreDAO.dll
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreDAO\obj\Debug\LeStoreDAO.pdb

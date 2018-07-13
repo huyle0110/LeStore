@@ -1,0 +1,5 @@
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreService.dll
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreService.pdb
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.csprojResolveAssemblyReference.cache
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.dll
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.pdb

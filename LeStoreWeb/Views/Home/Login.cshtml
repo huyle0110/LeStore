@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                <form method="post" action="login">
+                    @Html.AntiForgeryToken()
+                    <div class="card" data-background="color" data-color="blue">
+                        <div class="card-header">
+                            <h3 class="card-title">Login</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label>User name</label>
+                                <input type="text" placeholder="Enter user name" class="form-control input-no-border">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" placeholder="Password" class="form-control input-no-border">
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-fill btn-wd ">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

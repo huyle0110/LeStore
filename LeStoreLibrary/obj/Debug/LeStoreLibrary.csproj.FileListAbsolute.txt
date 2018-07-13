@@ -1,0 +1,5 @@
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\bin\Debug\LeStoreLibrary.dll
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\bin\Debug\LeStoreLibrary.pdb
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\obj\Debug\LeStoreLibrary.csprojResolveAssemblyReference.cache
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\obj\Debug\LeStoreLibrary.dll
+c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\obj\Debug\LeStoreLibrary.pdb
