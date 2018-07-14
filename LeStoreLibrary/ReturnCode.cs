@@ -9,6 +9,7 @@ namespace LeStoreLibrary
     public enum ReturnCode
     {
         Success = 1,
-        Fail
+        Fail,
+        InvalidRequest = 2,
     }
 }

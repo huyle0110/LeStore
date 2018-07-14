@@ -42,11 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PermisstionType.cs" />
+    <Compile Include="Request\ICheckRequest.cs" />
     <Compile Include="ReturnCode.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\AccountLoginRequest.cs" />
-    <Compile Include="Response\AccountLoginResponse.cs" />
+    <Compile Include="Request\Account\AccountLoginRequest.cs" />
+    <Compile Include="Response\Account\AccountLoginResponse.cs" />
     <Compile Include="Response\Response.cs" />
     <Compile Include="Utils\LogWriter.cs" />
     <Compile Include="Utils\Securities.cs" />

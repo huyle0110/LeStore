@@ -1,5 +1,9 @@
-c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreService.dll
-c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreService.pdb
-c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.csprojResolveAssemblyReference.cache
-c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.dll
-c:\users\huyle\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.pdb
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.csprojResolveAssemblyReference.cache
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreService.dll
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreService.pdb
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreDAO.dll
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreLibrary.dll
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreDAO.pdb
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\bin\Debug\LeStoreLibrary.pdb
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.dll
+C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreService\obj\Debug\LeStoreService.pdb

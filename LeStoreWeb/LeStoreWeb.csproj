@@ -387,6 +387,7 @@
     <Content Include="Content\Layout\examples\tables\datatables.net.html" />
     <Content Include="Content\Layout\examples\tables\extended.html" />
     <Content Include="Content\Layout\examples\tables\regular.html" />
+    <Content Include="Content\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -503,6 +504,7 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -520,6 +522,10 @@
     <ProjectReference Include="..\LeStoreLibrary\LeStoreLibrary.csproj">
       <Project>{666F1883-05F0-4893-A914-64C7ED11E80B}</Project>
       <Name>LeStoreLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeStoreService\LeStoreService.csproj">
+      <Project>{81F7BC14-6D8A-448D-9E26-67D5A3219E13}</Project>
+      <Name>LeStoreService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

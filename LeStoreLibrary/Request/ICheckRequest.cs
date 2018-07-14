@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace LeStoreLibrary.Request
 {
-    public class AccountLoginRequest
+    public interface ICheckRequest
     {
-        public string Password { get; set; }
-        public string AccountName { get; set; }
+        ReturnCode CheckValid();
     }
 }

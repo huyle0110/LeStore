@@ -25,7 +25,7 @@ namespace LeStoreDAO
                 {
                     cmd.Parameters.Add("AccountName", SqlDbType.NVarChar, 100).Value = request.AccountName;
                     cmd.Parameters.Add("Password", SqlDbType.NVarChar, 100).Value = request.Password;
-                    DataSet ds = DAO.ExecuteSP(cmd);
+                    DataSet ds = DB.ExecuteSP(cmd);
 
                     return res;
                 };
