@@ -2,4 +2,3 @@ C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\bin\
 C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\bin\Debug\LeStoreLibrary.pdb
 C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\obj\Debug\LeStoreLibrary.dll
 C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\obj\Debug\LeStoreLibrary.pdb
-C:\Users\HuyLe\documents\visual studio 2015\Projects\LeStore\LeStoreLibrary\obj\Debug\LeStoreLibrary.csprojResolveAssemblyReference.cache

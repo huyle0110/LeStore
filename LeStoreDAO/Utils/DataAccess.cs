@@ -19,10 +19,12 @@ namespace LeStoreDAO
         {
             get
             {
+                string connectionString = ConfigurationManager.AppSettings["connectionString"];
                 if (_db == null)
                 {
                     _db = new DBConnector();
-                    _db.SetConnectionString(ConfigurationManager.ConnectionStrings["connectionString"].ToString());
+
+                    _db.SetConnectionString(ConfigurationManager.AppSettings["connectionString"]);
                 }
                 return _db;
             }

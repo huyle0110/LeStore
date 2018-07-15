@@ -26,7 +26,7 @@ namespace LeStoreDAO.Utils
             }
             catch (Exception ex)
             {
-
+                LogWriter.WriteLogException(ex);
             }
         }
 

@@ -17,7 +17,7 @@ namespace LeStoreWeb.Controllers
         {
             if(!LeStoreSession.IsLogin())
             {
-                return RedirectToAction("Home", "Login");
+                return RedirectToAction("Login", "Home");
             }
             return View();
         }

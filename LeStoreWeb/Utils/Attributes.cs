@@ -15,6 +15,8 @@ namespace LeStoreWeb.Utils
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             // Check Session
+            if (!LeStoreSession.IsLogin())
+
             base.OnActionExecuting(filterContext);
         }
         public override void OnResultExecuted(ResultExecutedContext filterContext)

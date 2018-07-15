@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ProductModel.cs" />
     <Compile Include="PermisstionType.cs" />
     <Compile Include="Request\ICheckRequest.cs" />
+    <Compile Include="Request\Product\CreateProductRequest.cs" />
     <Compile Include="ReturnCode.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
