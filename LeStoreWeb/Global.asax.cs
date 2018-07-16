@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeStoreService.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,8 @@ namespace LeStoreWeb
     {
         protected void Application_Start()
         {
+            MissionControl.getInstance();
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -10,36 +10,23 @@ namespace LeStoreDAO
 {
     public partial class DataAccess
     {
-        static DataAccess instance;
-        public DataAccess() { }
+        public DataAccess()
+        {
+        }
+
         private DBConnector _db = null;
-        static readonly object lockDAO = new object();
 
         public DBConnector DB
         {
             get
             {
-                string connectionString = ConfigurationManager.AppSettings["connectionString"];
                 if (_db == null)
                 {
                     _db = new DBConnector();
-
-                    _db.SetConnectionString(ConfigurationManager.AppSettings["connectionString"]);
+                    _db.SetConnectString(LeStoreCacheDAO.connectionString);
                 }
                 return _db;
             }
-        }
-
-        public DataAccess getInstance()
-        {
-            if (instance == null)
-            {
-                lock (lockDAO)
-                {
-                    instance = new DataAccess();
-                }
-            }
-            return instance;
         }
     }
 }

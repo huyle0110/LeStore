@@ -1,0 +1,18 @@
+# Ignore file with extension
+*.dll
+*.pdo
+
+# Ignore file with extension
+LeStoreDAO/bin
+LeStoreDAO/obj
+
+LeStoreLibrary/bin
+LeStoreLibrary/obj
+
+LeStoreService/bin
+LeStoreService/obj
+
+LeStoreWeb/bin
+LeStoreWeb/obj
+
+

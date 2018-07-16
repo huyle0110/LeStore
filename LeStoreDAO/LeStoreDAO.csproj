@@ -57,12 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\DataAccess.cs" />
     <Compile Include="Utils\DBConnector.cs" />
+    <Compile Include="Utils\LeStoreCacheDAO.cs" />
     <Compile Include="Utils\SqlCommandStore.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +52,7 @@
     <Compile Include="Request\Account\AccountLoginRequest.cs" />
     <Compile Include="Response\Account\AccountLoginResponse.cs" />
     <Compile Include="Response\Response.cs" />
+    <Compile Include="Utils\ConfigurationFileApplicationSettings.cs" />
     <Compile Include="Utils\LogWriter.cs" />
     <Compile Include="Utils\Securities.cs" />
   </ItemGroup>

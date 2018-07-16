@@ -12,7 +12,7 @@ namespace LeStoreService.Service
 {
     public class AccountService
     {
-        private DataAccess dao = new DataAccess().getInstance();
+        DataAccess dao = new DataAccess();
         public AccountLoginResponse AccountLogin(AccountLoginRequest request)
         {
             AccountLoginResponse res = new AccountLoginResponse();

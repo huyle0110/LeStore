@@ -1,4 +1,3 @@
-C:\Users\HuyLe\Documents\Visual Studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreDAO.dll.config
 C:\Users\HuyLe\Documents\Visual Studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreDAO.dll
 C:\Users\HuyLe\Documents\Visual Studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreDAO.pdb
 C:\Users\HuyLe\Documents\Visual Studio 2015\Projects\LeStore\LeStoreDAO\bin\Debug\LeStoreLibrary.dll

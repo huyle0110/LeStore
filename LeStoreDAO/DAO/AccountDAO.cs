@@ -27,7 +27,7 @@ namespace LeStoreDAO
                     cmd.Parameters.Add("Password", SqlDbType.NVarChar, 100).Value = request.Password;
 
                     cmd.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                    DataSet ds = DB.ExecuteSP(cmd);
+                    DataSet ds = DB.ExecuteSPDataSet(cmd);
                     res.Code = (ReturnCode)Convert.ToInt32(cmd.Parameters["@Return"].Value);
 
                     if (res.Code != ReturnCode.Success)

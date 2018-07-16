@@ -12,13 +12,36 @@ namespace LeStoreDAO.Utils
     public class DBConnector
     {
         private SqlConnection sqlConnect = null;
-        private SqlTransaction sqlTran = null;
-
+        private SqlTransaction tn = null;
         private Boolean bHasTran = false;
 
         private string ConnectionString = string.Empty;
 
-        private void Init()
+        bool bAutoCloseConnection = true;
+
+        /// <summary>
+        /// SetConnectString
+        /// </summary>
+        /// <param name="cs"></param>
+        public void SetConnectString(string cs)
+        {
+            ConnectionString = cs;
+            sqlConnect.ConnectionString = ConnectionString;
+        }
+
+        /// <editer>sang.nguyen</editer>
+        /// <summary>
+        /// DBConnector
+        /// </summary>
+        public DBConnector()
+        {
+            InitConnection();
+        }
+
+        /// <summary>
+        /// InitConnection
+        /// </summary>
+        void InitConnection()
         {
             try
             {
@@ -31,13 +54,25 @@ namespace LeStoreDAO.Utils
         }
 
         /// <summary>
-        /// Huy.le
+        /// OpenConnect
         /// </summary>
-        /// <param name="ConnectionString">Connection String to Connect to Database</param>
-        public void SetConnectionString(string ConnectionString)
+        /// <returns></returns>
+        public int OpenConnect()
         {
-            this.ConnectionString = ConnectionString;
-            this.sqlConnect.ConnectionString = ConnectionString;
+            bool isOpen = true;
+            try
+            {
+                if (sqlConnect.State == ConnectionState.Closed)
+                {
+                    sqlConnect.Open();
+                }
+            }
+            catch (Exception ex)
+            {
+                LogWriter.WriteLogException(ex);
+                isOpen = false;
+            }
+            return isOpen ? 1 : -1;
         }
 
         /// <summary>
@@ -49,10 +84,10 @@ namespace LeStoreDAO.Utils
             int iBegin = 1;
             try
             {
-                if (Connect() == -1) return -4;
-                if (sqlTran == null)
+                if (OpenConnect() == -1) return -4;
+                if (tn == null)
                 {
-                    sqlTran = sqlConnect.BeginTransaction();
+                    tn = sqlConnect.BeginTransaction();
                 }
                 bHasTran = true;
             }
@@ -73,11 +108,11 @@ namespace LeStoreDAO.Utils
             int iCommit = 1;
             try
             {
-                if (sqlTran != null && bHasTran == true)
+                if (tn != null && bHasTran == true)
                 {
-                    sqlTran.Commit();
-                    sqlTran.Dispose();
-                    sqlTran = null;
+                    tn.Commit();
+                    tn.Dispose();
+                    tn = null;
                 }
                 bHasTran = false;
             }
@@ -102,11 +137,11 @@ namespace LeStoreDAO.Utils
             int iRollback = 1;
             try
             {
-                if (sqlTran != null && bHasTran == true)
+                if (tn != null && bHasTran == true)
                 {
-                    sqlTran.Rollback();
-                    sqlTran.Dispose();
-                    sqlTran = null;
+                    tn.Rollback();
+                    tn.Dispose();
+                    tn = null;
                 }
                 bHasTran = false;
             }
@@ -123,53 +158,90 @@ namespace LeStoreDAO.Utils
         }
 
         /// <summary>
-        /// Connnect DB
+        /// ExecuteSP
         /// </summary>
+        /// <param name="cmd"></param>
         /// <returns></returns>
-        private int Connect()
+        public int ExecuteSP(SqlCommand cmd)
         {
-            bool isOpen = true;
+            int iOk = -1;
             try
             {
-                if (sqlConnect.State == ConnectionState.Closed)
-                    sqlConnect.Open();
-            }
-            catch (Exception ex)
-            {
-                LogWriter.WriteLogException(ex);
-                isOpen = false;
-            }
-            return isOpen ? 1 : -1;
-        }
-        public DataSet ExecuteSP(SqlCommand cmd)
-        {
-            DataSet ds = null;
-            try
-            {
-                if (this.Connect() == -1)
-                    return null;
+                if (bHasTran) cmd.Transaction = tn;
+                else if (OpenConnect() == -1) return -4;
+
                 cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandTimeout = CoreConfig.GetSqlCommandTimeOut;
                 cmd.Connection = sqlConnect;
-                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                {
-                    ds = new DataSet("DataSet");
-                    da.Fill(ds);
-                };
+                cmd.ExecuteNonQuery();
+                iOk = 1;
             }
             catch (Exception ex)
             {
-                LogWriter.WriteLogException(ex);
+                iOk = 0;
             }
-            return ds;
+            if (!bHasTran && bAutoCloseConnection)
+            {
+                CloseConnect();
+            }
+            return iOk;
         }
 
+        /// <summary>
+        /// ExecuteSPDataSet
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <returns></returns>
+        public DataSet ExecuteSPDataSet(SqlCommand cmd)
+        {
+            DataSet ds = null;
+            Boolean err = false;
+            try
+            {
+                if (bHasTran)
+                    cmd.Transaction = tn;
+                else if (OpenConnect() == -1) return null;
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandTimeout = CoreConfig.GetSqlCommandTimeOut;
+                cmd.Connection = sqlConnect;
+                //cmd.escapeSQL(bHasTran ? false : true);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    try
+                    {
+                        ds = new DataSet("DataSet");
+                        //da.SelectCommand.CommandTimeout = CoreConfig.GetSqlDataAdapterCommandTimeout;
+                        da.Fill(ds);
+                    }
+                    catch (Exception ex)
+                    {
+                        err = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                err = true;
+            }
+            if (!bHasTran && bAutoCloseConnection)
+                CloseConnect();
+            return (err ? null : ds);
+        }
+
+        /// <summary>
+        /// CloseConnect
+        /// </summary>
+        /// <returns></returns>
         public int CloseConnect()
         {
             int iClose = 1;
             try
             {
                 if (sqlConnect != null)
+                {
                     sqlConnect.Close();
+                }
             }
             catch (Exception ex)
             {

@@ -14,18 +14,21 @@ namespace LeStoreLibrary.Utils
         static string LogMsgPath = string.Empty;
         static readonly object lockLog = new object();
         static readonly object lockRaw = new object();
-        public static void Init()
+        public static void Init(string logFolderPath)
         {
-            string LogFolderPath = WebConfigurationManager.AppSettings["LogFolderPath"];
+            string LogFolderPath = logFolderPath;
             if (!Directory.Exists(LogFolderPath))
                 Directory.CreateDirectory(LogFolderPath);
+
             LogExceptionPath = Path.Combine(LogFolderPath, "LogException.txt");
-            if (!Directory.Exists(LogExceptionPath))
-                Directory.CreateDirectory(LogExceptionPath);
-            LogMsgPath = Path.Combine(LogFolderPath, "LogException.txt");
-            if (!Directory.Exists(LogExceptionPath))
-                Directory.CreateDirectory(LogExceptionPath);
+            if (!File.Exists(LogExceptionPath))
+                File.Create(LogExceptionPath).Dispose();
+
+            LogMsgPath = Path.Combine(LogFolderPath, "LogMsg.txt");
+            if (!File.Exists(LogMsgPath))
+                File.Create(LogMsgPath).Dispose();
         }
+
         public static void WriteLogException(Exception ex)
         {
             StringBuilder sb = new StringBuilder();
