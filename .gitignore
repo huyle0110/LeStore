@@ -1,6 +1,5 @@
 # Ignore file with extension
-*.dll
-*.pdo
+*.pdb
 
 # Ignore file with extension
 LeStoreDAO/bin
