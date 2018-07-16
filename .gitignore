@@ -1,5 +1,6 @@
 # Ignore file with extension
 *.pdb
+*.suo
 
 # Ignore file with extension
 LeStoreDAO/bin
