@@ -18,10 +18,10 @@ namespace LeStoreWeb.Controllers
         [Route("/")]
         public ActionResult Index()
         {
-            if(!LeStoreSession.IsLogin())
-            {
-                return RedirectToAction("Login", "Home");
-            }
+            //if (LeStoreSession.IsLogin())
+            //{
+            //    return RedirectToAction("Login", "Home");
+            //}
             return View();
         }
 
