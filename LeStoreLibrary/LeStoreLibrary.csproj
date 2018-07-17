@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources_MSG.resx</DependentUpon>
     </Compile>
+    <Compile Include="Request\Admin\SetRole4UserRequest.cs" />
     <Compile Include="Request\ICheckRequest.cs" />
     <Compile Include="Request\Product\CreateProductRequest.cs" />
     <Compile Include="Response\ResponseModel.cs" />

@@ -75,7 +75,7 @@ namespace LeStoreWeb.Controllers
         public ActionResult Logout()
         {
             LeStoreSession.ClearSession();
-            return View("/");
+            return Redirect("/");
         }
     }
 }

@@ -19,6 +19,7 @@ namespace LeStoreLibrary.Model
         public DateTime? DOB { get; set; }
         public DateTime? CreateDate { get; set; }
         public DateTime? LastUpdate { get; set; }
+        public AccountStatus? Status { get; set; }
 
         public AccountModel() { }
         public AccountModel(DataRow row)
@@ -39,5 +40,11 @@ namespace LeStoreLibrary.Model
     {
         Admin = 1,
         Staff = 2
+    }
+
+    public enum AccountStatus
+    {
+        Inactive = 0,
+        Active = 1
     }
 }
