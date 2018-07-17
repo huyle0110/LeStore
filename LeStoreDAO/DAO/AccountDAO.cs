@@ -45,7 +45,7 @@ namespace LeStoreDAO
                     // Return permisstiontypes
                     rows = new DataRow[ds.Tables[1].Rows.Count];
                     ds.Tables[1].Rows.CopyTo(rows, 0);
-                    //res.PermissionTypes = rows.Select(row => row.Field<string>("PermisstionTypes")).ToList();
+                    res.PermissionTypes = rows.Select(row => row["RoleCode"] != DBNull.Value? (PermisstionType?)row["RoleCode"] : null).ToList();
                     return res;
                 };
             }
