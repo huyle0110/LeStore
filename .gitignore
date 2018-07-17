@@ -2,7 +2,7 @@
 *.pdb
 *.suo
 
-# Ignore file with extension
+# Ignore file with path
 LeStoreDAO/bin
 LeStoreDAO/obj
 

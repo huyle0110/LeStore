@@ -10,6 +10,6 @@ namespace LeStoreLibrary
     public class AccountLoginResponse : Response
     {
         public AccountModel Account { get; set; }
-        public List<PermisstionType> PermissionTypes { get; set; }
+        public List<PermisstionType?> PermissionTypes { get; set; }
     }
 }
