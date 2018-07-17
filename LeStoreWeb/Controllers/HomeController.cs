@@ -13,6 +13,8 @@ namespace LeStoreWeb.Controllers
     public class HomeController : Controller
     {
         AccountService service = new AccountService();
+
+        [Route("/")]
         public ActionResult Index()
         {
             if(!LeStoreSession.IsLogin())
@@ -44,7 +46,6 @@ namespace LeStoreWeb.Controllers
                 };
             }
 
-
             return View("/");
         }
 
@@ -53,6 +54,14 @@ namespace LeStoreWeb.Controllers
         public ActionResult Login()
         {
             return View("Login");
+        }
+
+        [HttpGet]
+        [Route("Logout")]
+        public ActionResult Logout()
+        {
+            LeStoreSession.ClearSession();
+            return View("/");
         }
     }
 }
