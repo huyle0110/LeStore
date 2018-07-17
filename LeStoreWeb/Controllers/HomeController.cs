@@ -1,4 +1,5 @@
 ﻿using LeStoreLibrary;
+using LeStoreLibrary.Properties;
 using LeStoreLibrary.Request;
 using LeStoreService.Service;
 using LeStoreWeb.Utils;
@@ -44,9 +45,22 @@ namespace LeStoreWeb.Controllers
                     Account = resLogin.Account,
                     permissions = resLogin.PermissionTypes
                 };
+                return Redirect("/");
+            }
+            else
+            {
+                switch(resLogin.Code)
+                {
+                    case ReturnCode.Account_NotExist:
+                        this.ViewBag.MessageInfo = Resources_MSG.MSG_0000;
+                        break;
+                    case ReturnCode.Fail:
+                        this.ViewBag.MessageInfo = Resources_MSG.MSG_0001;
+                        break;
+                }
             }
 
-            return View("/");
+            return View();
         }
 
         [HttpGet]

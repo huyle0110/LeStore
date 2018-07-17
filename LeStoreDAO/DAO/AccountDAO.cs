@@ -43,9 +43,10 @@ namespace LeStoreDAO
                     res.Account = rows.Select(row => new AccountModel(row)).First();
 
                     // Return permisstiontypes
-                    rows = new DataRow[ds.Tables[1].Rows.Count];
-                    ds.Tables[1].Rows.CopyTo(rows, 0);
-                    res.PermissionTypes = rows.Select(row => row["RoleCode"] != DBNull.Value? (PermisstionType?)row["RoleCode"] : null).ToList();
+                    //rows = new DataRow[ds.Tables[1].Rows.Count];
+                    //ds.Tables[1].Rows.CopyTo(rows, 0);
+                    //res.PermissionTypes = rows.Select(row => row["RoleCode"] != DBNull.Value? (PermisstionType?)row["RoleCode"] : null).ToList();
+
                     return res;
                 };
             }

@@ -26,14 +26,12 @@ namespace LeStoreLibrary.Model
             this.AccountID = row["AccountID"] != DBNull.Value ? (long?)long.Parse(row["AccountID"].ToString()) : null;
             this.AccountType = row["AccountType"] != DBNull.Value ? (AccountType?)int.Parse(row["AccountType"].ToString()) : null;
             this.AccountName = row["AccountName"] != DBNull.Value ? row["AccountName"].ToString() : null;
-            this.AccountName = row["AccountName"] != DBNull.Value ? row["AccountName"].ToString() : null;
             this.PhoneNumber = row["PhoneNumber"] != DBNull.Value ? row["PhoneNumber"].ToString() : null;
-            this.Address = row["AccountName"] != DBNull.Value ? row["Address"].ToString() : null;
-            this.IDNumber = row["AccountName"] != DBNull.Value ? row["IDNumber"].ToString() : null;
-            this.DOB = row["DateTime"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["DOB"].ToString()) : null;
-            this.CreateDate = row["DateTime"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["CreateDate"].ToString()) : null;
-            this.LastUpdate = row["DateTime"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["LastUpdate"].ToString()) : null;
-            this.DOB = row["DateTime"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["Address"].ToString()) : null;
+            this.Address = row["Address"] != DBNull.Value ? row["Address"].ToString() : null;
+            this.IDNumber = row["IDNumber"] != DBNull.Value ? row["IDNumber"].ToString() : null;
+            this.DOB = row["DOB"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["DOB"].ToString()) : null;
+            this.CreateDate = row["CreateDate"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["CreateDate"].ToString()) : null;
+            this.LastUpdate = row["LastUpdate"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["LastUpdate"].ToString()) : null;
         }
     }
 

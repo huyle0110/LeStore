@@ -44,6 +44,11 @@
   <ItemGroup>
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="PermisstionType.cs" />
+    <Compile Include="Properties\Resources_MSG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources_MSG.resx</DependentUpon>
+    </Compile>
     <Compile Include="Request\ICheckRequest.cs" />
     <Compile Include="Request\Product\CreateProductRequest.cs" />
     <Compile Include="Response\ResponseModel.cs" />
@@ -56,7 +61,12 @@
     <Compile Include="Utils\LogWriter.cs" />
     <Compile Include="Utils\Securities.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources_MSG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources_MSG.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

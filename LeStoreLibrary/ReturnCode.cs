@@ -11,5 +11,6 @@ namespace LeStoreLibrary
         Success = 1,
         Fail,
         InvalidRequest = 2,
+        Account_NotExist = -1001,
     }
 }
