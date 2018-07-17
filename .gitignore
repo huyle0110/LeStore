@@ -3,6 +3,7 @@
 *.suo
 
 # Ignore file with path
+./vs
 LeStoreDAO/bin
 LeStoreDAO/obj
 

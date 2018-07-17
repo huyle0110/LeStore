@@ -30,6 +30,6 @@ namespace LeStoreWeb.Utils
     public class UserSession
     {
         public AccountModel Account { get; set; }
-        public List<PermisstionType> permissions { get; set; }
+        public List<PermisstionType?> permissions { get; set; }
     }
 }
