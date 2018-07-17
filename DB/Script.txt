@@ -1,0 +1,240 @@
+USE [thecao]
+GO
+/****** Object:  StoredProcedure [dbo].[uspCheckAccountLogin]    Script Date: 7/16/2018 10:37:56 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+/*************************************************************************************************  
+Kiem tra thong tin Account login
+PROCEDURE [dbo].[uspCheckAccountLogin] 
+Param:
+	@AccountName nvarchar(256) = NULL,
+	@Password varchar(126) = NULL
+	
+Return:
+	1: thanh cong
+	0: that bai
+	  
+Author:
+	Tan.Nguyen
+
+Since: 
+	2016/07/19
+	Last Modified By:
+	Last Modified Date:
+	Last Modified Purpose:
+
+*************************************************************************************************/
+
+ALTER PROCEDURE [dbo].[uspCheckAccountLogin] 
+	
+	@AccountName nvarchar(256) = NULL,
+	@Password varchar(126) = NULL
+
+AS
+SET NOCOUNT ON
+SET XACT_ABORT ON
+DECLARE @Return int
+
+SET @Return = 0
+
+IF NOT EXISTS(SELECT TOP 1 1 FROM [dbo].[Account]  with(nolock)
+WHERE [AccountName] = @AccountName AND [Password] = @Password)
+
+BEGIN
+	SET @Return = -10202
+	GOTO ERROR
+END
+
+RETURN 1
+ERROR: 
+	RETURN @Return
+
+USE [thecao]
+GO
+/****** Object:  StoredProcedure [dbo].[uspAccountLogin]    Script Date: 7/17/2018 10:11:16 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+/*************************************************************************************************  
+Lay thong tin UserAccount
+PROCEDURE [dbo].[uspAccountLogin]
+Param:
+	@AccountName nvarchar(256) = NULL,
+	@Password varchar(126) = NULL,
+	@Session varchar(32) = NULL
+	
+Return:
+	1: thanh cong
+	0: that bai
+	-1004: Account không t?n t?i
+	-1005: Password không dúng
+	-1009: Account v?a b? t?m khóa(ho?c khóa) do sai password
+	-1007: Quy?n không dúng
+	-1008: Terminal không t?n t?i		
+	-1110: Account inactive
+	-1113: Account t?m khóa
+	-1114: Account b? khóa	
+	-1120: Terminal inactive
+	-1170: Ðã ? tr?ng thái mong mu?n
+	-1171: không du?c phép chuy?n tr?ng thái
+	
+	Output:
+
+
+	Recordset:
+	Recordset 1: Thông tin account
+		AccountID	bigint
+		AccountName	varchar (64)
+		FullName	nvarchar (256)
+		AccountEmail	nvarchar (1024)
+		AccountPhone	varchar (16)
+		AccountAddress	nvarchar(128)
+		AccountTypeName	nvarchar (24)
+		Status smallint
+		StatusName	nvarchar (20)
+		CreateDate	datetime
+		LastModifyDate	datetime
+		Language	smallint
+
+	Recordset 2: Danh sách quy?n c?a account
+		RoleCode varchar(32)
+		RoleName	nvarchar(128)
+
+		Recordset 3: danh sach quyen
+		[RoleDetailID]
+      ,[RoleCode]
+      ,[RoleMasterID]
+
+	  Recordset 4: danh sach setting
+	  [SettingCode],[SettingValue]
+	  
+Author:
+
+Since: 
+	2015/06/15
+
+*************************************************************************************************/
+
+ALTER PROCEDURE [dbo].[uspAccountLogin] 
+	
+	@AccountName nvarchar(256) = NULL,
+	@AccountType smallint = NULL,
+	@Password varchar(126) = NULL,
+	@Session varchar(32) = NULL
+--	@ConsecutiveLoginTimes	smallint = NULL,
+--	@BlockedTime	smallint = NULL
+
+AS
+SET NOCOUNT ON
+SET XACT_ABORT ON
+DECLARE @ExistedAccount smallint
+DECLARE @Return int
+DECLARE @AgentID bigint
+DECLARE @LoginAccountType smallint
+DECLARE @RoleMasterID bigint
+
+SET @Return = 0
+SET @AccountType = 0
+
+--{
+EXEC @ExistedAccount = [dbo].[uspCheckAccountLogin]
+						@AccountName,
+						@Password
+						
+IF  (@ExistedAccount = 1)
+
+BEGIN
+	SELECT TOP 1 [AccountID]
+			,[AccountType]			
+			,[RoleMasterID]
+			,[AccountName]
+			,[Password]
+			,[FullName]
+			,[Address]
+			,[PhoneNumber]
+			,[Email]
+			,[ChangePassCode]
+			,[ChangePassExpiredDate]
+			,[Status]
+			,[LastUpdate]
+			,[CreateDate]
+			,[Language]
+			,[Setting]
+			,AuthType
+			,AllowIPAddress
+			,DenyIPAddress
+			,TryCount
+			,[IsGenAuth]
+			,[AuthKey]
+	FROM [dbo].[Account] with(nolock)
+	WHERE [AccountName] = @AccountName
+
+--SELECT A.[AgentID]
+--      ,A.[ParentAgentID]
+--	  ,A.[AgentGroupID]
+--      ,A.[AgentName]
+--      ,A.[AgentLevel]
+--	  ,B.[Balance]
+--	  ,B.[SubBalance]
+--	  ,A.Status
+--      ,A.[CreateDate]
+--      ,A.[LastUpdate]
+--	  ,A.SettingID
+--  FROM [dbo].[Agent] A  with(nolock)
+--  LEFT JOIN [dbo].[AgentBalance] B  with(nolock)
+--  ON A.AgentID = B.AgentID
+--	WHERE A.[AgentID] = (SELECT [AgentID] FROM [dbo].[Account]  with(nolock) WHERE [AccountName] = @AccountName)
+
+
+SET @LoginAccountType = (SELECT TOP 1 AccountType
+							FROM [dbo].[Account]  with(nolock)
+							WHERE [AccountName] = @AccountName)
+
+SET @RoleMasterID = (SELECT TOP 1 RoleMasterID
+							FROM [dbo].[Account]  with(nolock)
+							WHERE [AccountName] = @AccountName)
+
+SELECT [RoleDetailID]
+      ,[RoleCode]
+      ,[RoleMasterID]
+  FROM [dbo].[RoleDetail]  with(nolock)
+  WHERE [RoleMasterID] = @RoleMasterID AND [visible] = 1;
+
+SELECT TOP 1 [SettingValue] FROM [dbo].[Setting]  with(nolock) WHERE 
+[AccountType] = @LoginAccountType AND [SettingCode] = 'SystemSetting'
+
+END
+
+ELSE
+	BEGIN
+		SET @Return = -1004
+		GOTO ERROR
+	END
+--}
+
+RETURN 1
+ERROR: 
+	RETURN @Return
+
+
+
+
+
+
+
+
+

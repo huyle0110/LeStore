@@ -29,7 +29,6 @@ namespace LeStoreDAO.Utils
             sqlConnect.ConnectionString = ConnectionString;
         }
 
-        /// <editer>sang.nguyen</editer>
         /// <summary>
         /// DBConnector
         /// </summary>
@@ -217,12 +216,14 @@ namespace LeStoreDAO.Utils
                     catch (Exception ex)
                     {
                         err = true;
+                        LogWriter.WriteLogException(ex);
                     }
                 }
             }
             catch (Exception ex)
             {
                 err = true;
+                LogWriter.WriteLogException(ex);
             }
             if (!bHasTran && bAutoCloseConnection)
                 CloseConnect();
