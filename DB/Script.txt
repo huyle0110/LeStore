@@ -230,6 +230,164 @@ RETURN 1
 ERROR: 
 	RETURN @Return
 
+USE [thecao]
+GO
+/****** Object:  StoredProcedure [dbo].[uspCreateAccount]    Script Date: 7/18/2018 4:50:03 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+/*************************************************************************************************  
+T?o tài kho?n
+
+PROCEDURE [dbo].[uspCreateAccount] 
+	@AccountType smallint = NULL,
+	@AccountName nvarchar(256) = NULL,
+	@FullName nvarchar(256) = NULL,
+	@Password varchar(126) = NULL,
+	@Email varchar(50) = NULL,
+	@PhoneNumber varchar(50) = NULL,
+	@Address nvarchar(200) = NULL,
+	@AuthType smallint = NULL,
+	@AllowIPAddress varchar(200) = NULL,
+	@DenyIPAddress varchar(200) = NULL,
+	@RoleMasterID bigint = NULL
+	
+Return:
+	1: thanh cong
+	0: that bai
+	-1001: Account dã t?n t?i
+	
+	Output:
+
+
+	Recordset:
+	Recordset 1: Thông tin account
+	[AccountID]
+      ,[AccountType]
+      ,[AgentID]
+      ,[AccountName]
+      ,[Password]
+      ,[FullName]
+      ,[Address]
+      ,[PhoneNumber]
+      ,[Email]
+      ,[Status]
+      ,[CreateDate]
+
+
+Author:
+	Khang.Duong
+
+*************************************************************************************************/
+
+ALTER PROCEDURE [dbo].[uspCreateAccount] 
+	@AccountType smallint = NULL,
+	@AccountName nvarchar(256) = NULL,
+	@FullName nvarchar(256) = NULL,
+	@Password varchar(126) = NULL,
+	@Email varchar(50) = NULL,
+	@PhoneNumber varchar(50) = NULL,
+	@Address nvarchar(200) = NULL,
+	@AuthType smallint = NULL,
+	@AllowIPAddress varchar(200) = NULL,
+	@DenyIPAddress varchar(200) = NULL,
+	@RoleMasterID bigint = NULL
+
+AS
+SET NOCOUNT ON
+SET XACT_ABORT ON
+DECLARE @Return int
+
+SET @Return = 0
+
+IF  EXISTS(SELECT TOP 1 1 FROM [dbo].[Account] 
+WHERE [AccountName] = @AccountName)
+BEGIN
+	SET @Return = -1001
+	GOTO ERROR
+END
+
+--IF NOT EXISTS(SELECT TOP 1 1 FROM [dbo].[Agent] WITH(NOLOCK)
+--WHERE [AgentID] = @AgentID)
+--BEGIN
+--	SET @Return = -1002
+--	GOTO ERROR
+--END
+
+
+INSERT INTO [dbo].[Account]
+           ([AccountType]
+           ,[RoleMasterID]
+           ,[AccountName]
+           ,[Password]
+           ,[FullName]
+           ,[Address]
+           ,[PhoneNumber]
+           ,[Email]
+           ,[ChangePassCode]
+           ,[ChangePassExpiredDate]
+           ,[Status]
+		   ,AuthType
+		   ,AllowIPAddress
+		   ,DenyIPAddress
+		   ,TryCount
+		   ,IsGenAuth
+           ,[LastUpdate]
+           ,[CreateDate]
+           ,[Language])
+     VALUES
+           (@AccountType
+           ,CASE WHEN @RoleMasterID IS NOT NULL THEN @RoleMasterID ELSE 1 END
+           ,@AccountName
+           ,@Password
+           ,@FullName
+           ,@Address
+           ,@PhoneNumber
+           ,@Email
+           ,NULL
+           ,NULL
+           ,1
+		   ,@AuthType
+		   ,@AllowIPAddress
+		   ,@DenyIPAddress
+		   ,0
+		   ,0
+           ,GETDATE()
+           ,GETDATE()
+           ,1)
+
+SELECT TOP 1 [AccountID]
+,[AccountType]
+,[RoleMasterID]
+,[AccountName]
+,[Password]
+,[FullName]
+,[Address]
+,[PhoneNumber]
+,[Email]
+,[ChangePassCode]
+,[ChangePassExpiredDate]
+,[Status]
+,[LastUpdate]
+,[CreateDate]
+,[Language]
+,AuthType
+,AllowIPAddress
+,DenyIPAddress
+FROM [dbo].[Account]
+WHERE [AccountName] = @AccountName
+
+
+RETURN 1
+ERROR: 
+	RETURN @Return
+
 
 
 
