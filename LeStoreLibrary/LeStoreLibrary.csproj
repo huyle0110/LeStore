@@ -49,9 +49,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources_MSG.resx</DependentUpon>
     </Compile>
-    <Compile Include="Request\Admin\SetRole4UserRequest.cs" />
+    <Compile Include="Request\Account\CreateAccountRequest.cs" />
+    <Compile Include="Request\Account\DeleteAccountRequest.cs" />
+    <Compile Include="Request\Account\GetAccountRequest.cs" />
+    <Compile Include="Request\Account\SearchAccountRequest.cs" />
+    <Compile Include="Request\Account\UpdateAccountRequest.cs" />
+    <Compile Include="Request\Admin\SetRole4AccountRequest.cs" />
     <Compile Include="Request\ICheckRequest.cs" />
     <Compile Include="Request\Product\CreateProductRequest.cs" />
+    <Compile Include="Request\Product\DeleteProductRequest.cs" />
+    <Compile Include="Request\Product\SearchProductRequest.cs" />
+    <Compile Include="Request\Product\UpdateProductRequest.cs" />
+    <Compile Include="Response\Admin\SetRole4AccountResponse.cs" />
     <Compile Include="Response\ResponseModel.cs" />
     <Compile Include="ReturnCode.cs" />
     <Compile Include="Model\AccountModel.cs" />

@@ -20,7 +20,8 @@ namespace LeStoreLibrary.Model
         public DateTime? CreateDate { get; set; }
         public DateTime? LastUpdate { get; set; }
         public AccountStatus? Status { get; set; }
-
+        public string Roles  { get; set; }
+        public List<string> ListRoles { get; set; }
         public AccountModel() { }
         public AccountModel(DataRow row)
         {
@@ -33,6 +34,13 @@ namespace LeStoreLibrary.Model
             this.DOB = row["DOB"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["DOB"].ToString()) : null;
             this.CreateDate = row["CreateDate"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["CreateDate"].ToString()) : null;
             this.LastUpdate = row["LastUpdate"] != DBNull.Value ? (DateTime?)DateTime.Parse(row["LastUpdate"].ToString()) : null;
+
+            this.ListRoles = Roles.Split(',').ToList();
+        }
+
+        public void GetListRoles()
+        {
+            this.ListRoles = Roles.Split(',').ToList();
         }
     }
 

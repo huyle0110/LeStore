@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LeStoreLibrary.Response
 {
-    public class Response
+    public class SetRole4AccountResponse: Response
     {
-        public ReturnCode Code { get; set; }
+
     }
 }

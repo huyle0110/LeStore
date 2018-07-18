@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeStoreLibrary.Request.Admin
 {
-    public class SetRole4UserRequest : ICheckRequest
+    public class SetRole4AccountRequest : ICheckRequest
     {
         public long? RoleID { get; set; }
         public long? AccountID { get; set; }
