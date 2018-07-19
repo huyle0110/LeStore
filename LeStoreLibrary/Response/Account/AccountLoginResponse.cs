@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeStoreLibrary
+namespace LeStoreLibrary.Response
 {
     public class AccountLoginResponse : Response
     {

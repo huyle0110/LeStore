@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace LeStoreLibrary.Request.Product
 {
-    public class CreateProductRequest : ICheckRequest
+    public class SearchProductRequest : ICheckRequest
     {
-        public long? ProductID { get; set; }
         public string ProductName { get; set; }
         public decimal? Price { get; set; }
-        public string Image1Path { get; set; }
-        public string Image2Path { get; set; }
-        public string Image3Path { get; set; }
-        public string Image4Path { get; set; }
-        public string Image5Path { get; set; }
         public long? Category { get; set; }
+
         public ReturnCode CheckValid()
         {
             return ReturnCode.Success;
