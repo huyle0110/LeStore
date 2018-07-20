@@ -52,7 +52,7 @@ namespace LeStoreWeb.Controllers
                     Account = resLogin.Account,
                     permissions = resLogin.PermissionTypes
                 };
-                return Redirect("/");
+                return Redirect("admin");
             }
             else
             {

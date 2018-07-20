@@ -140,7 +140,6 @@ namespace LeStoreDAO
             }
         }
 
-
         public SearchAccountResponse SearchAccount(SearchAccountRequest request)
         {
             SearchAccountResponse res = new SearchAccountResponse();

@@ -36,7 +36,7 @@ namespace LeStoreWeb.Utils
 
             }
             if (LeStoreSession.GetUserInfo() == null ||
-                !LeStoreSession.GetUserInfo().Account.ListRoles.Any(item => this.PermissionType.Contains((PermisstionType)int.Parse(item))))
+                !LeStoreSession.GetUserInfo().Account.ListRoles.Any(item => this.PermissionType.Contains(item)))
             {
                 LogWriter.WriteLogMsg("Not Permission");
             }
