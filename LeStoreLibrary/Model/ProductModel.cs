@@ -12,6 +12,7 @@ namespace LeStoreLibrary.Model
         public long? ProductID { get; set; }
         public string ProductName { get; set; }
         public decimal Price { get; set; }
+        public long? CategoryID { get; set; }
         public DateTime? CreateDate { get; set; }
         public DateTime? LastUpdate { get; set; }
         public string Image1Path { get; set; }

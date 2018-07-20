@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using LeStoreLibrary.Request.Account;
 using LeStoreWeb.Utils;
 using LeStoreLibrary;
+using LeStoreLibrary.Model;
 
 namespace LeStoreWeb.Controllers
 {
@@ -24,5 +25,33 @@ namespace LeStoreWeb.Controllers
        {
             return View();
        }
+
+
+        [Route("Update")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [LeStoreAttributes(AccountType.Admin, PermisstionType.UpdateAccount)]
+        public ActionResult UpdateAccount(UpdateAccountRequest request)
+        {
+            return View();
+        }
+
+        [Route("Search")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [LeStoreAttributes(AccountType.Admin, PermisstionType.SearchAccount)]
+        public ActionResult SearchAccount(SearchAccountRequest request)
+        {
+            return View();
+        }
+
+        [Route("Delete")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [LeStoreAttributes(AccountType.Admin, PermisstionType.DeleteAccount)]
+        public ActionResult DeleteAccount(DeleteAccountRequest request)
+        {
+            return View();
+        }
     }
 }

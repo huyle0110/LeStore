@@ -177,6 +177,7 @@ namespace LeStoreDAO.Utils
             }
             catch (Exception ex)
             {
+                LogWriter.WriteLogException(ex);
                 iOk = 0;
             }
             if (!bHasTran && bAutoCloseConnection)

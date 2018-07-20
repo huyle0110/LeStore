@@ -25,6 +25,13 @@ namespace LeStoreWeb.Controllers
             return View();
         }
 
+        [Route("admin")]
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         [Route("Login")]
         [ValidateAntiForgeryToken]

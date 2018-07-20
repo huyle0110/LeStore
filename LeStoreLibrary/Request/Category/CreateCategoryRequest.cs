@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeStoreLibrary.Request.Product
+namespace LeStoreLibrary.Request.Category
 {
-    public class UpdateProductRequest : ICheckRequest
+    public class CreateCategoryRequest : ICheckRequest
     {
+        public string CategoryName { get; set; }
 
         public ReturnCode CheckValid()
         {

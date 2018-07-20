@@ -9,7 +9,6 @@ namespace LeStoreLibrary.Request.Account
 {
     public class CreateAccountRequest : ICheckRequest
     {
-        public long? AccountID { get; set; }
         public string AccountName { get; set; }
         public AccountType? AccountType { get; set; }
         public string Password { get; set; }
