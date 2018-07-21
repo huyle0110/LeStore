@@ -19,8 +19,13 @@ namespace LeStoreDAO.Utils
         public const string uspCreateProduct = "uspCreateProduct";
         public const string uspUpdateProduct = "uspUpdateProduct";
         public const string uspSearchProduct = "uspSearchProduct";
-        public const string uspDeleteProduct = "v";
-        
+        public const string uspDeleteProduct = "uspDeleteProduct";
+
+        // Category
+        public const string uspCreateCategory = "uspCreateProduct";
+        public const string uspUpdateProduct = "uspUpdateProduct";
+        public const string uspSearchProduct = "uspSearchProduct";
+        public const string uspDeleteProduct = "uspDeleteProduct";
 
 
 

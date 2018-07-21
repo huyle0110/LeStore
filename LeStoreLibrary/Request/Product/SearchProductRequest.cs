@@ -8,9 +8,11 @@ namespace LeStoreLibrary.Request.Product
 {
     public class SearchProductRequest : ICheckRequest
     {
+        public string ProductCode { get; set; }
         public string ProductName { get; set; }
-        public decimal? Price { get; set; }
-        public long? Category { get; set; }
+        public decimal? FromPrice { get; set; }
+        public decimal? ToPrice { get; set; }
+        public long? CategoryID { get; set; }
 
         public ReturnCode CheckValid()
         {

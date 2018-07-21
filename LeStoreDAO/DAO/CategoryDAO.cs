@@ -1,18 +1,11 @@
 ﻿using LeStoreDAO.Utils;
-using LeStoreLibrary;
-using LeStoreLibrary.Model;
-using LeStoreLibrary.Request.Product;
-using LeStoreLibrary.Response.Product;
-using LeStoreLibrary.Utils;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeStoreDAO
+namespace LeStoreDAO.DAO
 {
     public partial class DataAccess
     {
