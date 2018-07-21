@@ -22,12 +22,9 @@ namespace LeStoreDAO.Utils
         public const string uspDeleteProduct = "uspDeleteProduct";
 
         // Category
-        public const string uspCreateCategory = "uspCreateProduct";
-        public const string uspUpdateProduct = "uspUpdateProduct";
-        public const string uspSearchProduct = "uspSearchProduct";
-        public const string uspDeleteProduct = "uspDeleteProduct";
-
-
-
+        public const string uspCreateCategory = "uspCreateCategory";
+        public const string uspDeleteCategory = "uspDeleteCategory";
+        public const string uspSearchCategory = "uspSearchCategory";
+        public const string uspUpdateCategory = "uspUpdateCategory";
     }
 }
