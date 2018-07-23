@@ -108,6 +108,8 @@ namespace LeStoreDAO
                     cmd.Parameters.Add("ProductName", SqlDbType.NVarChar, 100).Value = request.ProductName;
                     cmd.Parameters.Add("FromPrice", SqlDbType.Decimal, 18).Value = request.FromPrice;
                     cmd.Parameters.Add("ToPrice", SqlDbType.Decimal, 18).Value = request.ToPrice;
+                    cmd.Parameters.Add("Status", SqlDbType.Int).Value = request.Status;
+
                     cmd.Parameters.Add("CategoryID", SqlDbType.BigInt).Value = request.CategoryID;
 
                     cmd.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;

@@ -13,6 +13,7 @@ namespace LeStoreLibrary
 
         // Admin
         SetRole4User = 2001,
+
         // Account
         CreateAccount = 3001,
         UpdateAccount = 3002,
@@ -24,6 +25,7 @@ namespace LeStoreLibrary
         UpdateProduct = 4002,
         SearchProduct = 4003,
         DeleteProduct = 4004,
+
         // Category
         CreateCategory = 5001,
         UpdateCategory = 5002,

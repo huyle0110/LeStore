@@ -2,37 +2,15 @@
 @{
     Layout = null;
 }
-<div class="navbar-header">
-</div>
 <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav navbar-left">
         <li class="nav nav-tabs">
-            <a href="#Index">
+            <a href="/">
                 Home
             </a>
         </li>
-        <li class="nav-item">
-            <a href="setting" class="btn-rotate">
-                <i class="ti-settings"></i>
-                <p class="hidden-md hidden-lg">
-                    Settings
-                </p>
-            </a>
-        </li>
-        @if (LeStoreSession.IsLogin() && LeStoreSession.GetUserInfo().Account.AccountType == LeStoreLibrary.Model.AccountType.Admin)
-        {
-            <li class="nav-item">
-                <a href="setting" class="btn-rotate">
-                    <i class="ti-settings"></i>
-                    <p class="hidden-md hidden-lg">
-                        Admin
-                    </p>
-                </a>
-            </li>
-        }
 
-
-        <li class="nav-item">
+       <li  class="nav nav-tabs">
             <div class="btn-rotate">
                 <i class="fas fa-sign-in-alt"></i>
                 @if (LeStoreSession.IsLogin())
@@ -52,6 +30,5 @@
 
             </div>
         </li>
-
     </ul>
 </div>

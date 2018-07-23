@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\CategoryModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="PermisstionType.cs" />
     <Compile Include="Properties\Resources_MSG.Designer.cs">
@@ -56,6 +57,8 @@
     <Compile Include="Request\Account\UpdateAccountRequest.cs" />
     <Compile Include="Request\Admin\SetRole4AccountRequest.cs" />
     <Compile Include="Request\Category\CreateCategoryRequest.cs" />
+    <Compile Include="Request\Category\DeleteCategoryRequest.cs" />
+    <Compile Include="Request\Category\SearchCategoryRequest.cs" />
     <Compile Include="Request\Category\UpdateCategoryRequest.cs" />
     <Compile Include="Request\ICheckRequest.cs" />
     <Compile Include="Request\Product\CreateProductRequest.cs" />
@@ -67,6 +70,10 @@
     <Compile Include="Response\Account\SearchAccountResponse.cs" />
     <Compile Include="Response\Account\UpdateAccountResponse.cs" />
     <Compile Include="Response\Admin\SetRole4AccountResponse.cs" />
+    <Compile Include="Response\Category\CreateCategoryResponse.cs" />
+    <Compile Include="Response\Category\DeleteCategoryResponse.cs" />
+    <Compile Include="Response\Category\SearchCategoryResponse.cs" />
+    <Compile Include="Response\Category\UpdateCategoryResponse.cs" />
     <Compile Include="Response\Product\CreateProductResponse.cs" />
     <Compile Include="Response\Product\DeleteProductResponse.cs" />
     <Compile Include="Response\Product\SearchProductResponse.cs" />

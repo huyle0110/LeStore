@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeStoreLibrary.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace LeStoreLibrary.Request.Product
         public decimal? FromPrice { get; set; }
         public decimal? ToPrice { get; set; }
         public long? CategoryID { get; set; }
-
+        public ProductStatus? Status { get; set; }
         public ReturnCode CheckValid()
         {
             return ReturnCode.Success;

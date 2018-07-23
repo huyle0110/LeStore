@@ -9,12 +9,13 @@ namespace LeStoreLibrary
     public enum ReturnCode
     {
         Success = 1,
-        Fail,
+        Fail = 0,
         InvalidRequest = 2,
         Account_NotExist = -1001,
 
         // Product
         Product_Exist = -2001,
+        Product_Not_Exist = -2002,
 
         // Category
         Category_Exist = -3001,
