@@ -1,5 +1,6 @@
 ﻿using LeStoreLibrary;
 using LeStoreLibrary.Model;
+using LeStoreLibrary.Response;
 using LeStoreLibrary.Utils;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace LeStoreWeb.Utils
             // Check Session
             if (!LeStoreSession.IsLogin())
             {
-
+                throw new LeStoreException(ExceptionType.LOST_SESSION);
             }
             if (LeStoreSession.GetUserInfo() == null ||
                 !LeStoreSession.GetUserInfo().Account.ListRoles.Any(item => this.PermissionType.Contains(item)))
@@ -54,7 +55,24 @@ namespace LeStoreWeb.Utils
         {
             base.OnResultExecuting(filterContext);
         }
+
     }
 
-
+    public class LeStoreHandleException : HandleErrorAttribute
+    {
+        public override void OnException(ExceptionContext filterContext)
+        {
+            base.OnException(filterContext);
+            ResponseModel res = new ResponseModel();
+            if (filterContext.Exception is LeStoreException)
+            {
+                res = ResponseFactory.getInstace(filterContext.Exception as LeStoreException);
+            }
+            else if (filterContext.Exception is Exception)
+            {
+                res = ResponseFactory.getInstace(ResponseType.UNKNOWN);
+            }
+            //filterContext.Result = new object();
+        }
+    }
 }

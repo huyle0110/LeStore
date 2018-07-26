@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LeStoreException.cs" />
     <Compile Include="Model\CategoryModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="PermisstionType.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Response\Product\SearchProductResponse.cs" />
     <Compile Include="Response\Product\UpdateProductResponse.cs" />
     <Compile Include="Response\ResponseModel.cs" />
+    <Compile Include="Response\ResponseType.cs" />
     <Compile Include="ReturnCode.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
