@@ -5,7 +5,7 @@ using LeStoreLibrary.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Web.Http.Filters;
 using System.Web.Mvc;
 
 namespace LeStoreWeb.Utils
@@ -58,21 +58,22 @@ namespace LeStoreWeb.Utils
 
     }
 
-    public class LeStoreHandleException : HandleErrorAttribute
+    public class LeStoreHandleException : ExceptionFilterAttribute
     {
-        public override void OnException(ExceptionContext filterContext)
+
+        public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-            base.OnException(filterContext);
+            base.OnException(actionExecutedContext);
             ResponseModel res = new ResponseModel();
-            if (filterContext.Exception is LeStoreException)
+            if (actionExecutedContext.Exception is LeStoreException)
             {
-                res = ResponseFactory.getInstace(filterContext.Exception as LeStoreException);
+                res = ResponseFactory.getInstace(actionExecutedContext.Exception as LeStoreException);
             }
-            else if (filterContext.Exception is Exception)
+            else if (actionExecutedContext.Exception is Exception)
             {
                 res = ResponseFactory.getInstace(ResponseType.UNKNOWN);
             }
-            //filterContext.Result = new object();
         }
+        
     }
 }
